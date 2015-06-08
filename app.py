@@ -23,11 +23,15 @@ def login_required(f):
 @app.route('/')
 @login_required
 def home():
-    # g to store temporary data for the duration of a request
-    g.db = connect_db()
-    cur = g.db.execute('select * from posts')
-    posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
-    g.db.close()
+    posts = []
+    try:
+        # g to store temporary data for the duration of a request
+        g.db = connect_db()
+        cur = g.db.execute('select * from posts')
+        posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
+        g.db.close()
+    except sqlite3.OperationalError:
+        flash("there is no database!")
     return render_template('index.html', posts=posts)
 
 
