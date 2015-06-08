@@ -26,7 +26,7 @@ def home():
     # g to store temporary data for the duration of a request
     g.db = connect_db()
     cur = g.db.execute('select * from posts')
-    posts = [dict(title=row[0], description=row[1])for row in cur.fetchall()]
+    posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
     g.db.close()
     return render_template('index.html', posts=posts)
 
@@ -42,7 +42,7 @@ def login():
     if request.method == 'POST':
         if request.form['username'] != 'admin' or\
            request.form['password'] != 'admin':
-            error = 'Invalid credentials, Pease try again.'
+            error = 'Invalid credentials, Please try again.'
         else:
             session['logged_in'] = True
             flash('You were just logged in')
