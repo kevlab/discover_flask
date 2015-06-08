@@ -1,0 +1,10 @@
+*.pyc
+*.swp
+.DS_Store
+.hg
+*.TMP
+.coverage
+htmlcov/
+cover/
+taskr2.7/
+venv/
