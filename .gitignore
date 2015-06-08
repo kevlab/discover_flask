@@ -8,4 +8,4 @@ htmlcov/
 cover/
 taskr2.7/
 venv/
-.db
+*.db
