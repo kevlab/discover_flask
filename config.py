@@ -15,7 +15,11 @@ class BaseConfig(object):
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
 
-# run this command in shell
+# run this command in shell to set environ for heroku
 # heroku config:set APP_SETTINGS=config.ProductionConfig --remote heroku
+
+# then to add a postgres db:
+# heroku addons:create heroku-postgresql:hobby-dev
+# heroku config to verify
 class ProductionConfig(BaseConfig):
     DEBUG = False  # really want to be explicit
