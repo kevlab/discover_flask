@@ -11,7 +11,6 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 # printenv APP_SETTINGS
 # to set and see enviroment variables in terminal shell
 # from app import app, print app.config in python shell to verify
-print(os.environ['APP_SETTINGS'])
 
 db = SQLAlchemy(app)
 from models import *
