@@ -15,6 +15,7 @@ class BaseConfig(object):
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
 
-
+# run this command in shell
+# heroku config:set APP_SETTINGS=config.ProductionConfig --remote heroku
 class ProductionConfig(BaseConfig):
     DEBUG = False  # really want to be explicit
