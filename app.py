@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request, session,\
                   flash
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.bcrypt import Bcrypt
 from functools import wraps
 
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 
 import os
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -12,6 +14,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 # to set and see enviroment variables in terminal shell
 # from app import app, print app.config in python shell to verify
 # environment variables can be stored with virtualenvwrapper and auto-loaded
+# isntall virtualenvwrapper globally!, not within a venv
 
 db = SQLAlchemy(app)
 from models import *
