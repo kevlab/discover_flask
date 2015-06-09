@@ -5,8 +5,12 @@ from functools import wraps
 
 app = Flask(__name__)
 
-app.secret_key = "my secret"  # replace
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+import os
+app.config.from_object(os.environ['APP_SETTINGS'])
+# export APP_SETTINGS="config.DevelopmentConfig"
+# printenv APP_SETTINGS
+# to set and see enviroment variables in terminal shell
+# from app import app, print app.config in python shell to verify
 
 db = SQLAlchemy(app)
 from models import *
@@ -57,4 +61,4 @@ def logout():
     return redirect(url_for('welcome'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
