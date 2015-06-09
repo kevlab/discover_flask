@@ -10,7 +10,8 @@ class BaseConfig(object):
     DEBUG = False
     SECRET_KEY = 'o\xc6dG\x1eP\x04E\xd1\xe9\xc8\x8b\xbb\x06\x0e\x92\xcd\xfbn\xdb\xb1\xdf\xda\xaa'
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-
+# add postgres: export DATABASE_URL="postgresql://user:pwd@localhost/discover_flask_dev"
+# check ubuntu postgres doc!
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
