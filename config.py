@@ -5,6 +5,8 @@ import os
 # alt to load from file:
 # with open('/etc/secret_key.txt') as f:
 #     SECRET_KEY = f.read().strip()
+#
+# environment variables can be stored with virtualenvwrapper and auto-loaded
 
 class BaseConfig(object):
     DEBUG = False
