@@ -26,3 +26,9 @@ class DevelopmentConfig(BaseConfig):
 # heroku config to verify
 class ProductionConfig(BaseConfig):
     DEBUG = False  # really want to be explicit
+
+class TestConfig(BaseConfig):
+    DEBUG = True
+    TESTING = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
